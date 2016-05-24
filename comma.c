@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 int main(void)
 {
 	char input[100];
@@ -9,9 +10,9 @@ int main(void)
 
 	for(i=0;input[i]!='\0';i++)
 		len++;
-							
+	
 	printf("출력: ");
-								
+	
 	for(i=len;i>0;i--)
 	{
 		if((i!=len)&&(i%3==0))
@@ -20,7 +21,7 @@ int main(void)
 		}
 		printf("%c",input[len-i]);
 	}
-		printf("\n");
+	printf("\n");
 
 	return 0;
 }
