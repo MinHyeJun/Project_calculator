@@ -1,3 +1,37 @@
+#include <stdio.h> 
+2  #include <string.h>
+3  #define StoD(x) (x==0? 0:x-'0') //숫자를 문자열로 입력받은 후 숫자로 바꿈 
+    void integerize(char num[]) //실수 정수화 완료.
+4   void mod(char*arr,int len); 
+5        int main(){ 
+6        char a[3][10002]={0}; //배열 3개 선언하면서 0으로 초기화 
+7        int len,i; 
+8        printf("A= "); 
+9        scanf("%s",a[0]); //a[0]에 숫자를 문자로 입력받음 
+         integerize (a[0])
+10       printf("B= ");
+11       scanf("%s",a[1]); //a[1]에 숫자를 문자로 입력받음 
+12       integerize (a[1])
+13       if(strlen(a[0])>strlen(a[1])){ //배열의 길이를 int형으로 변환 
+14           len=strlen(a[0]); 
+15       }else len=strlen(a[1]); // A,B중에 더 긴 문자열의 길이 입력받음 
+16   
+17       for(i=0;i<=len;i++){ 
+18       a[2][i]=((StoD(a[0][i]))%(StoD(a[1][i]))); 
+19       } 
+20       if(a[2][len]=='0') a[2][len]=0; 
+21       printf("A%%B=%s\n",a[2]); 
+22       return 0; 
+23   } 
+24   void mod(char*arr,int len){ 
+25       char temp; 
+26       int i; 
+27       for(i=0;i<len;i++){ 
+28           temp=arr[i]; 
+29           arr[i]=arr[len-1-i]; 
+30           arr[len-1-i]=temp; 
+31   } 
+32 } 
 
 void integerize(char num[]) //실수 정수화 완료. 
 2 { 
@@ -49,16 +83,4 @@ void integerize(char num[]) //실수 정수화 완료.
 
 
 
-Status
- API
- Training
- Shop
- Blog
- About
-   © 2016 GitHub, Inc.
- Terms
- Privacy
- Security
- Contact
- Help
- 
+
