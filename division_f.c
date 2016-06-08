@@ -306,8 +306,31 @@ void floatlize(char num[])
 	for(i=0;num[i]!='\0';i++)
 		cnt++;
 
+	if(cnt<10)
+	{
+		for(i=0;i<cnt;i++)
+			num[9-i]=num[cnt-1-i];
+
+//		for(i=0;i<10;i++)
+//			printf("%d",num[i]);
+//		printf("\n");
+	
+		for(i=0;i<10-cnt;i++)
+		   num[i]='0';	
+	}
+	
+//	printf("num12:%s\n",num);
+
+	cnt=0;
+
+	for(i=0;num[i]!='\0';i++)
+		cnt++;
+
 	for(i=0;i<9;i++)
 		num[cnt-i]=num[cnt-1-i];
+	
+//		for(i=0;i<9;i++)
+//			printf("%d",num[i]);
 
 	num[cnt-9]='.';
 
@@ -320,4 +343,8 @@ void floatlize(char num[])
 	else
 		for(i=0;i<cnt_0;i++)
 		num[cnt-i]='\0';
+
+	if((num[0]=='0')&&((num[1]>='1')&&(num[1]<='9')))
+		for(i=0;i<=strlen(num);i++)
+			num[i]=num[i+1];
 } 
