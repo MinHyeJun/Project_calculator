@@ -130,6 +130,9 @@ int main(void)
 
 	printf("결과:%s\n",num4);
 
+	for(i=0;i<61;i++)
+		printf("%d",num4[i]);
+
 	return 0;
 }
 
@@ -338,8 +341,8 @@ void floatlize(char num[])
 		cnt_0++;
 
 	if(cnt_0==9)
-		for(i=0;i<9;i++)
-			num[cnt-1-i]='\0';
+		for(i=0;i<=9;i++)
+			num[cnt-i]='\0';
 	else
 		for(i=0;i<cnt_0;i++)
 		num[cnt-i]='\0';
