@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	char input[100]={0};
+	int len=0,i;
+	int count_p=0,point=0;
+
+	printf("입력: ");
+	scanf("%s",input);
+
+	for(i=0;input[i]!='\0';i++)
+	{
+		len++;
+
+		if(input[i]==46)
+			point=1;
+	}
+
+	if(point==1)
+	{
+		for(i=0;input[i]!=46;i++)
+			count_p++;
+	}
+
+	printf("출력: ");
+
+	if(point==0)	//정수부분
+	{
+	for(i=len;i>0;i--)
+	{
+		if((i!=len)&&(i%3==0))
+		{
+			printf(",");
+		}
+		printf("%c",input[len-i]);
+	}
+	}
+	else if(point==1) //소수부분
+	{
+	for(i=count_p;i>0;i--)
+	{
+		if((i!=count_p)&&(i%3==0))
+		{
+			printf(",");
+		}
+		printf("%c",input[count_p-i]);
+	}
+	
+	printf(".");
+	
+	for(i=0;i<len-count_p-1;i++)
+	{
+		if((i!=0)&&(i%3==0))
+		{
+			printf(",");
+		}
+	printf("%c",input[count_p+1+i]);
+	}
+	}
+	printf("\n");
+
+	return 0;
+}
